@@ -18,7 +18,7 @@ This project uses several legitimate patterns that heuristic scanners sometimes 
 
 ### Project Verification
 
-✅ **Open Source** - Full source code available at: https://github.com/XuXuClassMate/testcase-generator
+✅ **Open Source** - Full source code available at: https://github.com/InnoNestX/testcase-generator
 
 ✅ **Official Dependencies** - All npm packages are from verified publishers:
 - `@anthropic-ai/sdk` - Anthropic official SDK
@@ -45,8 +45,8 @@ If you are evaluating this project for enterprise use:
 If you find a genuine security vulnerability, please report it responsibly:
 
 1. **DO NOT** open a public issue
-2. GitHub Issues: https://github.com/XuXuClassMate/testcase-generator/issues
-3. GitHub Security Advisories: https://github.com/XuXuClassMate/testcase-generator/security/advisories
+2. GitHub Issues: https://github.com/InnoNestX/testcase-generator/issues
+3. GitHub Security Advisories: https://github.com/InnoNestX/testcase-generator/security/advisories
 
 ### False Positive Appeals
 
@@ -54,7 +54,7 @@ If VirusTotal flags this project:
 
 1. **Submit to VirusTotal** - https://www.virustotal.com/gui/contact-upload
 2. **Reference this document** - Link to this SECURITY.md
-3. **Include project URL** - https://github.com/XuXuClassMate/testcase-generator
+3. **Include project URL** - https://github.com/InnoNestX/testcase-generator
 
 ---
 
