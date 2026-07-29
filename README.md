@@ -179,8 +179,8 @@ Release publishing is triggered by pushing a tag like `v1.0.0`, and the tag must
 
 ## Links
 
-- GitHub: https://github.com/XuXuClassMate/testcase-generator
+- GitHub: https://github.com/InnoNestX/testcase-generator
 - Docker Hub: https://hub.docker.com/r/xuxuclassmate/testcase-generator
 - npm: https://www.npmjs.com/package/@classmatexuxu/testcase-generator
-- Releases: https://github.com/XuXuClassMate/testcase-generator/releases
+- Releases: https://github.com/InnoNestX/testcase-generator/releases
 - Detailed docs: [docs/README.md](./docs/README.md)
