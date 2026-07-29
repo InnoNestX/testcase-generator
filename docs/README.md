@@ -213,7 +213,7 @@ Total score: **100 points**
 - `ffmpeg` (optional, for video frame extraction)
 
 ```bash
-git clone https://github.com/XuXuClassMate/testcase-generator
+git clone https://github.com/InnoNestX/testcase-generator
 cd testcase-generator
 npm install
 npm run build
