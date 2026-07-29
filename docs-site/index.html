@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testcase Generator — AI-powered QA test case generation</title>
+    <meta
+      name="description"
+      content="Turn PRDs, specs, images, and video into structured test cases with a three-persona AI review loop. Export Excel, Markdown, and XMind."
+    />
+    <link rel="canonical" href="https://innonestx.github.io/testcase-generator/" />
+    <style>
+      :root {
+        --bg: #0d0f18;
+        --surface: #161827;
+        --surface2: #1e2135;
+        --border: #2a2d4a;
+        --accent: #6366f1;
+        --accent2: #a78bfa;
+        --accent3: #38bdf8;
+        --success: #34d399;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --r: 12px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        color: var(--text);
+        font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+        background:
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.28), transparent),
+          radial-gradient(ellipse 50% 40% at 100% 0%, rgba(56, 189, 248, 0.12), transparent),
+          var(--bg);
+        line-height: 1.6;
+      }
+      a {
+        color: var(--accent2);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .wrap {
+        width: min(920px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 48px 0 72px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 56px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+      }
+      .nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+      .nav a {
+        color: var(--muted);
+      }
+      .nav a:hover {
+        color: var(--text);
+        text-decoration: none;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 1.1rem;
+        margin-bottom: 28px;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 56px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.15s ease;
+      }
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+      .btn-primary {
+        color: white;
+        background: linear-gradient(135deg, var(--accent), #7c3aed);
+        border-color: transparent;
+      }
+      .btn-secondary {
+        color: var(--text);
+        background: var(--surface);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-bottom: 48px;
+      }
+      .card {
+        background: rgba(22, 24, 39, 0.85);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 18px;
+      }
+      .card h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      section {
+        margin-bottom: 40px;
+      }
+      section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 14px;
+      }
+      pre {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 16px 18px;
+        overflow-x: auto;
+        font-size: 13px;
+        color: #cbd5e1;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .note {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .pill {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        background: rgba(99, 102, 241, 0.15);
+        color: var(--accent2);
+        font-size: 12px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <span>Testcase Generator</span>
+        </div>
+        <nav class="nav">
+          <a href="https://github.com/InnoNestX/testcase-generator">GitHub</a>
+          <a href="https://hub.docker.com/r/xuxuclassmate/testcase-generator">Docker Hub</a>
+          <a href="https://www.npmjs.com/package/@classmatexuxu/testcase-generator">npm</a>
+          <a href="https://github.com/InnoNestX/testcase-generator/blob/main/docs/README.md">Docs</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="pill">AI · QA · OpenClaw</div>
+          <h1>AI-powered test case generation for PRDs and multimodal inputs</h1>
+          <p>
+            Upload requirements, images, or video. Generate structured test cases with a
+            three-persona review loop, then export to Excel, Markdown, and XMind.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://github.com/InnoNestX/testcase-generator">View on GitHub</a>
+            <a class="btn btn-secondary" href="https://hub.docker.com/r/xuxuclassmate/testcase-generator">Run with Docker</a>
+          </div>
+        </section>
+
+        <section class="grid">
+          <article class="card">
+            <h3>Multimodal input</h3>
+            <p>PDF, Word, TXT, images, and video become structured QA coverage.</p>
+          </article>
+          <article class="card">
+            <h3>Three-persona review</h3>
+            <p>Test Manager, Dev Manager, and Product Manager refine the suite.</p>
+          </article>
+          <article class="card">
+            <h3>Ready-to-ship exports</h3>
+            <p>Download Excel, Markdown, and XMind mind maps in English or Chinese.</p>
+          </article>
+          <article class="card">
+            <h3>Four run modes</h3>
+            <p>Docker, local source, npm global install, or OpenClaw plugin.</p>
+          </article>
+        </section>
+
+        <section>
+          <h2>Quick start with Docker</h2>
+          <pre><code>docker pull xuxuclassmate/testcase-generator:latest
+
+docker run -d \
+  --name testcase-generator \
+  -p 3456:3456 \
+  -e AI_PROVIDER=anthropic \
+  -e ANTHROPIC_API_KEY=sk-ant-... \
+  xuxuclassmate/testcase-generator:latest
+
+# Open http://localhost:3456</code></pre>
+          <p class="note">
+            The interactive web UI runs with the standalone server. This GitHub Pages site is the
+            project homepage and docs entry point.
+          </p>
+        </section>
+
+        <section>
+          <h2>Install via npm</h2>
+          <pre><code>npm install -g @classmatexuxu/testcase-generator
+testcase-generator --standalone</code></pre>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+          <div class="links">
+            <a href="https://github.com/InnoNestX/testcase-generator">Source code</a>
+            <a href="https://github.com/InnoNestX/testcase-generator/blob/main/docs/README.md">Detailed docs</a>
+            <a href="https://hub.docker.com/r/xuxuclassmate/testcase-generator">Docker image</a>
+            <a href="https://www.npmjs.com/package/@classmatexuxu/testcase-generator">npm package</a>
+            <a href="https://github.com/InnoNestX/testcase-generator/releases">Releases</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Maintained by
+        <a href="https://github.com/InnoNestX">InnoNestX</a>
+        · MIT License
+      </footer>
+    </div>
+  </body>
+</html>
