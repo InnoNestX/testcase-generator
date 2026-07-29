@@ -4,11 +4,11 @@
 
 **AI-powered test case generation for PRDs, specifications, and multimodal QA inputs**
 
-[![Version](https://img.shields.io/github/v/release/XuXuClassMate/testcase-generator?label=version)](https://github.com/XuXuClassMate/testcase-generator/releases)
+[![Version](https://img.shields.io/github/v/release/InnoNestX/testcase-generator?label=version)](https://github.com/XuXuClassMate/testcase-generator/releases)
 [![Docker Pulls](https://img.shields.io/docker/pulls/xuxuclassmate/testcase-generator)](https://hub.docker.com/r/xuxuclassmate/testcase-generator)
 [![npm](https://img.shields.io/npm/v/%40classmatexuxu%2Ftestcase-generator?label=npm)](https://www.npmjs.com/package/@classmatexuxu/testcase-generator)
 
-[GitHub](https://github.com/XuXuClassMate/testcase-generator) • [Docker Hub](https://hub.docker.com/r/xuxuclassmate/testcase-generator) • [npm](https://www.npmjs.com/package/@classmatexuxu/testcase-generator) • [Detailed Docs](./docs/README.md)
+[GitHub](https://github.com/InnoNestX/testcase-generator) • [Docker Hub](https://hub.docker.com/r/xuxuclassmate/testcase-generator) • [npm](https://www.npmjs.com/package/@classmatexuxu/testcase-generator) • [Detailed Docs](./docs/README.md)
 
 </div>
 
