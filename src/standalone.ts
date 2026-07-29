@@ -19,7 +19,7 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import path from "path";
 import fs from "fs";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 
 import {
   PluginConfig, GenerationResult, ApiResponse,
@@ -161,7 +161,7 @@ export async function startServer(cfg: PluginConfig): Promise<void> {
         (message, round, score) => sendEvent("progress", { message, round, score })
       );
 
-      const sessionId = uuidv4();
+      const sessionId = randomUUID();
       let excelPath: string | undefined;
       let mdPath: string | undefined;
       let xmindPath: string | undefined;
@@ -232,7 +232,7 @@ export async function startServer(cfg: PluginConfig): Promise<void> {
         (message, round, score) => sendEvent("progress", { message, round, score })
       );
 
-      const newId = uuidv4();
+      const newId = randomUUID();
       let excelPath: string | undefined;
       let mdPath: string | undefined;
       let xmindPath: string | undefined;
