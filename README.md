@@ -42,7 +42,7 @@ docker pull xuxuclassmate/testcase-generator:latest
 ### 2. Prepare your environment file
 
 ```bash
-curl -O https://raw.githubusercontent.com/XuXuClassMate/testcase-generator/main/.env.example
+curl -O https://raw.githubusercontent.com/InnoNestX/testcase-generator/main/.env.example
 cp .env.example .env
 ```
 
@@ -145,7 +145,7 @@ testcase-generator --standalone
 ### Local source run
 
 ```bash
-git clone https://github.com/XuXuClassMate/testcase-generator.git
+git clone https://github.com/InnoNestX/testcase-generator.git
 cd testcase-generator
 npm install
 cp .env.example .env
