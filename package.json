@@ -52,7 +52,7 @@
     "@anthropic-ai/sdk": "^0.39.0",
     "openai": "^4.98.0",
     "express": "^4.22.1",
-    "express-rate-limit": "^7.5.0",
+    "express-rate-limit": "^8.7.2",
     "multer": "^2.2.0",
     "exceljs": "^4.4.0",
     "pdf-parse": "^1.1.1",
